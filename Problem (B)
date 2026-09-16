@@ -1,0 +1,50 @@
+// Interface that defines the common tour operation
+interface Guidable {
+
+    // Abstract method
+    void startTour();
+}
+
+// AudioGuide implements the Guidable interface
+class AudioGuide implements Guidable {
+
+    // Data members
+    String place;
+    String guideName;
+
+    // Constructor
+    AudioGuide(String place, String guideName) {
+        this.place = place;
+        this.guideName = guideName;
+    }
+
+    // Implementing the interface method
+    @Override
+    public void startTour() {
+
+        System.out.println("================================");
+        System.out.println("       AUDIO TOUR GUIDE");
+        System.out.println("================================");
+
+        System.out.println("Guide      : " + guideName);
+        System.out.println("Location   : " + place);
+        System.out.println("Tour Status: Started");
+
+        System.out.println("\nWelcome to " + place + "!");
+        System.out.println("Please listen to the audio guide.");
+        System.out.println("Enjoy your tour!");
+
+        System.out.println("================================");
+    }
+
+    // Main method
+    public static void main(String[] args) {
+
+        // Creating an AudioGuide object
+        AudioGuide guide =
+            new AudioGuide("City Museum", "Smart Audio Guide");
+
+        // Starting the tour
+        guide.startTour();
+    }
+}
