@@ -1,0 +1,47 @@
+// Parent class
+class Exhibit {
+
+    // Method to display exhibit details
+    void display() {
+        System.out.println("Museum Exhibit");
+    }
+}
+
+// Child class
+class InteractiveExhibit extends Exhibit {
+
+    // Overriding display method
+    @Override
+    void display() {
+        System.out.println("Interactive Museum Exhibit");
+    }
+}
+
+// Another class that is NOT related to Exhibit
+class Painting {
+}
+
+// Main class
+public class MuseumDemo {
+
+    public static void main(String[] args) {
+
+        // Creating an object of Painting
+        Object obj = new Painting();
+
+        try {
+
+            // Trying to cast Painting object to Exhibit
+            Exhibit exhibit = (Exhibit) obj;
+
+            // This line will not execute because casting fails
+            exhibit.display();
+
+        } catch (ClassCastException e) {
+
+            // Handling the invalid casting exception
+            System.out.println("ClassCastException occurred!");
+            System.out.println("Incompatible object cannot be cast to Exhibit.");
+        }
+    }
+}
